@@ -5,7 +5,9 @@ var ControladorUsuario = require("../controladores/usuario.controlador");
 
 var api = express.Router();
 
-api.get('/usuarios', ControladorUsuario.pruebaUsuario);
+var md_aut = require("../token/aut.js");
+
+api.get('/usuarios', md_aut.autenticacion, ControladorUsuario.pruebaUsuario);
 
 api.post('/crear-usuario', ControladorUsuario.crearUsuario);
 

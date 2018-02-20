@@ -24,6 +24,4 @@ mongoose.connect(basedatos, function(error, respuesta) {
       console.log("Api rest funcionando");
     });
   }
-
-
 });
