@@ -7,7 +7,8 @@ var api = express.Router();
 
 var md_aut = require("../token/aut.js");
 
-api.get('/usuarios', md_aut.autenticacion, ControladorUsuario.pruebaUsuario);
+//api.get('/usuarios', md_aut.autenticacion, ControladorUsuario.pruebaUsuario);
+api.get('/usuarios', ControladorUsuario.pruebaUsuario);
 
 api.post('/crear-usuario', ControladorUsuario.crearUsuario);
 
