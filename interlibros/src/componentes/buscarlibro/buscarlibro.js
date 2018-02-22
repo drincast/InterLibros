@@ -19,10 +19,55 @@ class BuscarLibro extends Component {
       token: objAut.getToken()
     }
   }
+
+  iniciarBusqueda = async () => {
+    let url = 'http://192.168.0.28:1234/api/obtener-libros-titulo/' + this.state.titulo;
+
+    fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+    })
+
+    .then((response) => response.json())
+    .then((responseJson) => {
+
+      if(responseJson.librosResp === undefined){
+        Alert.alert(responseJson.mensaje);
+      }
+      else{
+        Alert.alert(responseJson.librosResp[0].titulo);
+        //this.setState({data: responseJson.librosResp});
+        //Alert.alert('hola');
+        //this.props.navigation.navigate('BuscarLibro');
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  };
+
+
   render(){
     return (
       <View style={estilos.contenedor}>
-        <Text>Hola!!!</Text>
+        <View style={estilos.contenedorDatos}>
+          <Text>Buscar tu libro por título</Text>
+          <TextInput autoCapitalize="none"
+                     onChangeText = {(titulo) => this.setState({titulo})}
+                     placeholder='Buscar'
+                     placeholderTextColor='rgba(225,225,225,0.7)'
+                     ref={component => this._titulo = component}
+                     returnKeyType="next"
+                     style={estilos.input}>
+          </TextInput>
+
+          <TouchableOpacity onPress={this.iniciarBusqueda.bind(this)}
+                            style={estilos.contenedorBoton}>
+          <Text style={estilos.textoBoton}>BUSCAR</Text>
+          </TouchableOpacity>
+        </View>
         <Text>{objAut.getToken()}</Text>
       </View>
     );

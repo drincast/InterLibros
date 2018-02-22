@@ -5,18 +5,13 @@
  */
 
 import React, { Component } from 'react';
-import {
-  Alert,
-  Platform,
-  StyleSheet,
-  Text,
-  View
+import { Alert, Platform,
+         StyleSheet, Text,
+         View
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import Cabecera from './src/componentes/cabecera';
 import AutSinglenton from './src/aut/autsinglenton';
-
 import Login from './src/componentes/login/login';
 import BuscarLibro from './src/componentes/buscarlibro/buscarlibro';
 

@@ -29,7 +29,7 @@ function obtenerLibrosXTitulo(req, res){
   //var parametros = req.body;
   var titulo = req.params.titulo;
 
-  Libro.find({titulo:'%'+titulo+'%'}, (error, librosResp) => {
+  Libro.find({titulo: {'$regex': titulo}}, (error, librosResp) => {
     if(error){
       res.status(500).send({mensaje: "Error al buscar en los libros :("});
     }

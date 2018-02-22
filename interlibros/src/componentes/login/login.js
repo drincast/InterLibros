@@ -42,16 +42,19 @@ class Login extends Component {
   // }
 
   iniciarLogin = async () => {
-    console.log(this.state.usuario);
-
-    fetch('http://10.0.75.1:1234/api/login', {
+    fetch('http://192.168.0.28:1234/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        // body: JSON.stringify({
+        //   usuario: this.state.usuario,
+        //   password: this.state.password,
+        //   token: "true"
+        // })
         body: JSON.stringify({
-          usuario: this.state.usuario,
-          password: this.state.password,
+          usuario: 'usuario01',
+          password: '123456',
           token: "true"
         })
     })
