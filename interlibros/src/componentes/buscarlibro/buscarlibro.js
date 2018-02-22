@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, Alert, Button, Image, ListView
+import { ActivityIndicator, Alert, Button, FlatList
+         , List, ListItem, Image, ListView
          , ScrollView, StatusBar, Text, TextInput
          , TouchableOpacity, View } from 'react-native';
 import { estilos } from './estilos';
@@ -16,9 +17,16 @@ class BuscarLibro extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      token: objAut.getToken()
+      token: objAut.getToken(),
+      datos: [],
+      titulo: 'libro'
     }
   }
+
+  // componentDidMount() {
+  //   this.iniciarBusqueda();
+  // }
+
 
   iniciarBusqueda = async () => {
     let url = 'http://192.168.0.28:1234/api/obtener-libros-titulo/' + this.state.titulo;
@@ -38,7 +46,7 @@ class BuscarLibro extends Component {
       }
       else{
         Alert.alert(responseJson.librosResp[0].titulo);
-        //this.setState({data: responseJson.librosResp});
+        this.setState({datos: responseJson.librosResp});
         //Alert.alert('hola');
         //this.props.navigation.navigate('BuscarLibro');
       }
@@ -68,6 +76,11 @@ class BuscarLibro extends Component {
           <Text style={estilos.textoBoton}>BUSCAR</Text>
           </TouchableOpacity>
         </View>
+        <FlatList
+          data={this.state.datos}
+          renderItem={({item}) => <Text>{item.titulo}</Text>}
+          keyExtractor = { item  =>  item.titulo }
+        />
         <Text>{objAut.getToken()}</Text>
       </View>
     );

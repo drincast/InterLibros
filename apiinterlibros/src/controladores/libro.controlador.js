@@ -35,7 +35,7 @@ function obtenerLibrosXTitulo(req, res){
     }
     else{
       if(librosResp != null){
-        console.log(librosResp);
+        //console.log(librosResp);
         res.status(200).send({librosResp});
       }
       else {
