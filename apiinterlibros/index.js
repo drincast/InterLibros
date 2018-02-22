@@ -2,7 +2,6 @@
 
 var express = require('express');
 var mongoose = require('mongoose');
-var dato = require("./src/dato/dato");
 
 var app = require("./src/app");
 var port = process.env.PORT || 1234;

@@ -2,7 +2,9 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
+
 var rutaUsuario = require('./rutas/usuario.ruta');
+var rutaLibro = require('./rutas/libro.ruta');
 
 var app = express();
 
@@ -26,5 +28,6 @@ app.get("/pruebas", (req, res) => {
 });
 
 app.use("/api", rutaUsuario);
+app.use("/api", rutaLibro);
 
 module.exports = app;

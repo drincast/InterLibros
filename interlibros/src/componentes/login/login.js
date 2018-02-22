@@ -69,7 +69,6 @@ class Login extends Component {
         this.setState({password: ''});
         this.setState({logeado: true});
         objAut.setToken(responseJson.token);
-        //Alert.alert(objAut.getToken());
         this.props.navigation.navigate('BuscarLibro');
       }
     })

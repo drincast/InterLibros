@@ -1,15 +1,24 @@
 "use strict"
 
-var Usuario = require("../modelos/usuario.modelo.js");
-
 var bcrypt =  require("bcrypt-nodejs");
-
 var token = require("../token/token");
 
-
+var Usuario = require("../modelos/usuario.modelo.js");
 
 function pruebaUsuario(req, res){
-  res.status(200).send({mensaje: "Probando el controlador de usuarios"});
+  //res.status(200).send({mensaje: "Probando el controlador de usuarios"});
+  Usuario.find((error, usuariosResp) => {
+    if(error){
+      res.status(500).send({mensaje: "Error al consultar usuarios :("});
+    }
+    else{
+      if(usuariosResp != null)
+        res.status(200).send({usuariosResp});
+      else {
+        res.status(500).send({mensaje: "Error al consultar usuario :("});
+      }
+    }
+  });
 }
 
 function crearUsuario(req, res){
