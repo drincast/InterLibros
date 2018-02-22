@@ -14,7 +14,6 @@ export const estilos = StyleSheet.create({
   contenedorDatos: {
     backgroundColor: '#305172',
     flex: 2
-
   },
   input:{
       height: 45,

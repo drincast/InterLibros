@@ -6,15 +6,44 @@
 
 import React, { Component } from 'react';
 import {
+  Alert,
   Platform,
   StyleSheet,
   Text,
   View
 } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-//import Login from './src/componentes/login2/login';
-import Login from './src/componentes/login/login';
 import Cabecera from './src/componentes/cabecera';
+import AutSinglenton from './src/aut/autsinglenton';
+
+import Login from './src/componentes/login/login';
+import BuscarLibro from './src/componentes/buscarlibro/buscarlibro';
+
+//iniciamos clase singlenton, info global
+var objAut = AutSinglenton.getInstancia();
+
+const NavegacionRaiz = StackNavigator(
+  {
+    Login: {
+      screen: Login,
+    },
+    BuscarLibro: {
+      screen: BuscarLibro,
+    },
+  },
+  {
+    initialRouteName: 'Login',
+  });
+
+type Props = {};
+export default class App extends Component<Props> {
+  render() {
+    return (
+      <NavegacionRaiz />
+    );
+  }
+}
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -22,15 +51,6 @@ const instructions = Platform.select({
   android: 'Double tap R on your keyboard to reload,\n' +
     'Shake or press menu button for dev menu',
 });
-
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <Login></Login>
-    );
-  }
-}
 
 // <View style={styles.container}>
 //   <Login></Login>
@@ -47,22 +67,3 @@ export default class App extends Component<Props> {
 //     {instructions}
 //   </Text>
 // </View>
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
