@@ -28,7 +28,7 @@ const NavegacionRaiz = StackNavigator(
     },
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'BuscarLibro',
   });
 
 type Props = {};
