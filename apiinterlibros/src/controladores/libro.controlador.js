@@ -25,8 +25,41 @@ function crearLibro(req, res){
   });
 }
 
+function obtenerLibros(req, res){
+  Libro.find((error, librosResp) => {
+    if(error){
+      res.status(500).send({mensaje: "Error al obtener los libros :("});
+    }
+    else{
+      if(librosResp != null){
+        res.status(200).send(librosResp);
+      }
+      else {
+        res.status(500).send({mensaje: "Error al obtener los libros :("});
+      }
+    }
+  });
+}
+
+function obtenerLibro(req, res){
+  var id = req.params.id;
+
+  Libro.find({_id: id}, (error, libroResp) => {
+    if(error){
+      res.status(500).send({mensaje: "Error al buscar el libro :("});
+    }
+    else{
+      if(libroResp != null){
+        res.status(200).send(libroResp);
+      }
+      else {
+        res.status(500).send({mensaje: "Error al buscar el libro :("});
+      }
+    }
+  });
+}
+
 function obtenerLibrosXTitulo(req, res){
-  //var parametros = req.body;
   var titulo = req.params.titulo;
 
   Libro.find({titulo: {'$regex': titulo}}, (error, librosResp) => {
@@ -35,7 +68,6 @@ function obtenerLibrosXTitulo(req, res){
     }
     else{
       if(librosResp != null){
-        //console.log(librosResp);
         res.status(200).send({librosResp});
       }
       else {
@@ -47,5 +79,7 @@ function obtenerLibrosXTitulo(req, res){
 
 module.exports = {
   crearLibro,
+  obtenerLibro,
+  obtenerLibros,
   obtenerLibrosXTitulo
 }

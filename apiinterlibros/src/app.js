@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 
 var rutaUsuario = require('./rutas/usuario.ruta');
 var rutaLibro = require('./rutas/libro.ruta');
+var rutaMensaje = require('./rutas/mensaje.ruta');
 
 var app = express();
 
@@ -23,11 +24,12 @@ app.use(bodyParser.json());
 
 
 //rutas base
-app.get("/pruebas", (req, res) => {
-  res.status(200).send({message: "bienvenido"})
-});
+// app.get("/pruebas", (req, res) => {
+//   res.status(200).send({message: "bienvenido"})
+// });
 
 app.use("/api", rutaUsuario);
 app.use("/api", rutaLibro);
+app.use("/api", rutaMensaje);
 
 module.exports = app;

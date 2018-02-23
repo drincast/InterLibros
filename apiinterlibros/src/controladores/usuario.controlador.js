@@ -21,6 +21,40 @@ function pruebaUsuario(req, res){
   });
 }
 
+function obtenerUsuario(req, res){
+  var id = req.params.id;
+
+  Usuario.find({_id: id}, (error, usuarioResp) => {
+    if(error){
+      res.status(500).send({mensaje: "Error al consultar el usuario :("});
+    }
+    else{
+      if(usuarioResp != null){
+        res.status(200).send(usuarioResp);
+      }
+      else {
+        res.status(500).send({mensaje: "Error al consultar el usuario :("});
+      }
+    }
+  });
+}
+
+function obtenerUsuarios(req, res){
+  Usuario.find((error, usuariosResp) => {
+    if(error){
+      res.status(500).send({mensaje: "Error al consultar los usuarios :("});
+    }
+    else{
+      if(usuariosResp != null){
+        res.status(200).send(usuariosResp);
+      }
+      else {
+        res.status(500).send({mensaje: "Error al consultar los usuarios :("});
+      }
+    }
+  });
+}
+
 function crearUsuario(req, res){
   var usuario = new Usuario();
   var parametros = req.body;
@@ -62,6 +96,8 @@ function ingresoUsuario(req, res){
 
 module.exports = {
   pruebaUsuario,
+  obtenerUsuario,
+  obtenerUsuarios,
   crearUsuario,
   ingresoUsuario
 }
