@@ -7,7 +7,8 @@ import { StackNavigator } from 'react-navigation';
 import { estilos } from './estilos';
 import AutSinglenton from '../../aut/autsinglenton';
 
-var objAut = AutSinglenton.getInstancia();
+const configApp = require('../../configapp');
+let objAut = AutSinglenton.getInstancia();
 
 class Login extends Component {
   static navigationOptions = {
@@ -42,7 +43,9 @@ class Login extends Component {
   // }
 
   iniciarLogin = async () => {
-    fetch('http://192.168.0.28:1234/api/login', {
+    //http://192.168.0.28:1234/api/login
+    let url = configApp.urlApi + 'login';
+    fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,6 +75,8 @@ class Login extends Component {
         this.setState({password: ''});
         this.setState({logeado: true});
         objAut.setToken(responseJson.token);
+        objAut.setIdUsuario(responseJson.idUsuario);
+        alert(objAut.getIdUsuario());
         this.props.navigation.navigate('BuscarLibro');
       }
     })

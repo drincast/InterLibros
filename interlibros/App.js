@@ -14,6 +14,7 @@ import { StackNavigator } from 'react-navigation';
 import AutSinglenton from './src/aut/autsinglenton';
 import Login from './src/componentes/login/login';
 import BuscarLibro from './src/componentes/buscarlibro/buscarlibro';
+import DetalleLibro from './src/componentes/buscarlibro/detallelibro';
 
 //iniciamos clase singlenton, info global
 var objAut = AutSinglenton.getInstancia();
@@ -26,9 +27,12 @@ const NavegacionRaiz = StackNavigator(
     BuscarLibro: {
       screen: BuscarLibro,
     },
+    DetalleLibro: {
+      screen: DetalleLibro,
+    },
   },
   {
-    initialRouteName: 'BuscarLibro',
+    initialRouteName: 'Login',
   });
 
 type Props = {};

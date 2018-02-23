@@ -85,7 +85,7 @@ function ingresoUsuario(req, res){
     else{
       //console.log(usuarioResp._id);
       if(usuarioResp != null)
-        res.status(200).send({token: token.cargarToken(usuarioResp)});
+        res.status(200).send({token: token.cargarToken(usuarioResp), idUsuario: usuarioResp._id});
       else {
         res.status(500).send({mensaje: "Error al ingresar el usuario"});
       }

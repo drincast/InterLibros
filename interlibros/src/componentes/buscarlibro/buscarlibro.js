@@ -7,6 +7,7 @@ import { ActivityIndicator, Alert, Button, FlatList
 import { estilos } from './estilos';
 import AutSinglenton from '../../aut/autsinglenton';
 
+const configApp = require('../../configapp');
 var objAut = AutSinglenton.getInstancia();
 
 class BuscarLibro extends Component {
@@ -29,8 +30,10 @@ class BuscarLibro extends Component {
   // }
 
 
-  iniciarBusqueda = async () => {
-    let url = 'http://192.168.0.28:1234/api/obtener-libros-titulo/' + this.state.titulo;
+  iniciarBusquedaLibros = async () => {
+    //let url = 'http://192.168.0.28:1234/api/obtener-libros-titulo/' + this.state.titulo;
+    let url = configApp.urlApi + 'obtener-libros-titulo/' + this.state.titulo;
+    alert(url);
 
     fetch(url, {
         method: 'GET',
@@ -48,6 +51,7 @@ class BuscarLibro extends Component {
       else{
         //Alert.alert(responseJson.librosResp[0].titulo);
         this.setState({datos: responseJson.librosResp});
+        alert(JSON.stringify(responseJson.librosResp))
         Keyboard.dismiss();
         //Alert.alert('hola');
         //this.props.navigation.navigate('BuscarLibro');
@@ -57,6 +61,10 @@ class BuscarLibro extends Component {
       console.error(error);
     });
   };
+
+  detalleLibro = (idUsuario) => {
+    this.props.navigation.navigate('DetalleLibro', {idUsuario: idUsuario});
+  }
 
 
   render(){
@@ -73,7 +81,7 @@ class BuscarLibro extends Component {
                      style={estilos.input}>
           </TextInput>
 
-          <TouchableOpacity onPress={this.iniciarBusqueda.bind(this)}
+          <TouchableOpacity onPress={this.iniciarBusquedaLibros.bind(this)}
                             style={estilos.contenedorBoton}>
           <Text style={estilos.textoBoton}>BUSCAR</Text>
           </TouchableOpacity>
@@ -83,11 +91,13 @@ class BuscarLibro extends Component {
           <FlatList
             data={this.state.datos}
             renderItem={({item}) => (
-              <View style={estilos.itemLista}>
-                <Image style={estilos.imagen} source={{uri: item.urlImagen}} />
-                <Text>{item.titulo}</Text>
-                <Text>{item.autor}</Text>
-              </View>
+              <TouchableOpacity onPress={this.detalleLibro.bind(this, item.idUsuario)}>
+                <View style={estilos.itemLista}>
+                  <Image style={estilos.imagen} source={{uri: item.urlImagen}} />
+                  <Text>{item.titulo}</Text>
+                  <Text>{item.autor}</Text>
+                </View>
+              </TouchableOpacity>
             )}
             keyExtractor = { item  =>  item.titulo }
           />

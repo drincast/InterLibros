@@ -50,7 +50,7 @@ function obtenerLibro(req, res){
     }
     else{
       if(libroResp != null){
-        res.status(200).send(libroResp);
+        res.status(200).send({libroResp});
       }
       else {
         res.status(500).send({mensaje: "Error al buscar el libro :("});

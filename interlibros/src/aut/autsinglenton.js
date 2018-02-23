@@ -3,6 +3,7 @@ export default class AutSinglenton{
   static instanciaAut = null;
 
   _token: '';
+  _idUsuario: '';
 
   static getInstancia(){
     if (this.instanciaAut == null){
@@ -16,7 +17,15 @@ export default class AutSinglenton{
     return this._token;
   }
 
-  setToken(tk){
-    this._token = tk;
+  setToken(val){
+    this._token = val;
+  }
+
+  getIdUsuario(){
+    return this._idUsuario;
+  }
+
+  setIdUsuario(val){
+    this._idUsuario = val;
   }
 }

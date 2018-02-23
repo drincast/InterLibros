@@ -6,7 +6,7 @@ var token = require("../token/token");
 var Mensaje = require("../modelos/mensaje.modelo.js");
 
 function obtenerMensajes(req, res){
-  Usuario.find((error, mensajesResp) => {
+  Mensaje.find((error, mensajesResp) => {
     if(error){
       res.status(500).send({mensaje: "Error al consultar los mensajes :("});
     }
@@ -24,7 +24,7 @@ function obtenerMensajes(req, res){
 function obtenerMensajesXIdUsuario(req, res){
   var id = req.params.id;
 
-  Usuario.find({idUsuario: id}, (error, mensajesResp) => {
+  Mensaje.find({idUsuario: id}, (error, mensajesResp) => {
     if(error){
       res.status(500).send({mensaje: "Error al consultar los mensajes :("});
     }
