@@ -20,23 +20,23 @@ class DetalleLibro extends Component {
     super(props);
     this.state = {
       token: objAut.getToken(),
-      idLibro: '5a8f64de7ebc2447c8fa951d',
+      idLibro: this.props.navigation.state.params.idLibro,
       libro: undefined
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.obtenerDatosLibro();
   }
 
   obtenerDatosLibro = async () => {
-    //let url = configApp.urlApi + 'obtener-libro/' + this.state.idLibro;
     let url = configApp.urlApi + 'obtener-libro/' + this.props.navigation.state.params.idLibro;
 
      fetch(url, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': objAut.getToken()
         }
     })
 
@@ -50,7 +50,6 @@ class DetalleLibro extends Component {
         this.setState({
           libro: responseJson.libroResp[0],
         });
-        //this.props.navigation.navigate('BuscarLibro');
       }
     })
     .catch((error) => {
@@ -58,9 +57,7 @@ class DetalleLibro extends Component {
     });
   };
 
-
   enviarMensaje = async () => {
-    //let url = configApp.urlApi + 'obtener-libro/' + this.state.idLibro;
     let url = configApp.urlApi + 'enviar-mensaje';
 
      fetch(url, {
@@ -86,7 +83,6 @@ class DetalleLibro extends Component {
         this.setState({
           libro: responseJson.libroResp[0],
         });
-        //this.props.navigation.navigate('BuscarLibro');
       }
     })
     .catch((error) => {

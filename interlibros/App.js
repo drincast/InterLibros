@@ -14,7 +14,7 @@ import { StackNavigator } from 'react-navigation';
 import AutSinglenton from './src/aut/autsinglenton';
 import Login from './src/componentes/login/login';
 import BuscarLibro from './src/componentes/buscarlibro/buscarlibro';
-import DetalleLibro from './src/componentes/buscarlibro/detallelibro';
+import DetalleLibro from './src/componentes/detallelibro/detallelibro';
 
 //iniciamos clase singlenton, info global
 var objAut = AutSinglenton.getInstancia();

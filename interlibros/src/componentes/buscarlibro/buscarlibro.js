@@ -11,6 +11,7 @@ const configApp = require('../../configapp');
 let objAut = AutSinglenton.getInstancia();
 
 class BuscarLibro extends Component {
+
   static navigationOptions = {
     title: 'Buscar Libros',
     header: null
@@ -25,13 +26,7 @@ class BuscarLibro extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.iniciarBusqueda();
-  // }
-
-
   iniciarBusquedaLibros = async () => {
-    //let url = 'http://192.168.0.28:1234/api/obtener-libros-titulo/' + this.state.titulo;
     let url = configApp.urlApi + 'obtener-libros-titulo/' + this.state.titulo;
     alert(url);
 
@@ -50,12 +45,9 @@ class BuscarLibro extends Component {
         Alert.alert(responseJson.mensaje);
       }
       else{
-        //Alert.alert(responseJson.librosResp[0].titulo);
         this.setState({datos: responseJson.librosResp});
         alert(JSON.stringify(responseJson.librosResp))
         Keyboard.dismiss();
-        //Alert.alert('hola');
-        //this.props.navigation.navigate('BuscarLibro');
       }
     })
     .catch((error) => {
@@ -66,7 +58,6 @@ class BuscarLibro extends Component {
   detalleLibro = (idUsuario, idLibro) => {
     this.props.navigation.navigate('DetalleLibro', {idUsuario: idUsuario, idLibro: idLibro});
   }
-
 
   render(){
     return (
@@ -88,15 +79,28 @@ class BuscarLibro extends Component {
           </TouchableOpacity>
         </View>
         <View style={estilos.contenedorLista}>
-          <ScrollView style={{height:300}}>
+          <ScrollView style={estilos.scrollLista}>
           <FlatList
             data={this.state.datos}
             renderItem={({item}) => (
               <TouchableNativeFeedback onPress={this.detalleLibro.bind(this, item.idUsuario, item._id)}>
                 <View style={estilos.itemLista}>
-                  <Image style={estilos.imagen} source={{uri: item.urlImagen}} />
-                  <Text>{item.titulo}</Text>
-                  <Text>{item.autor}</Text>
+                  <View style={estilos.itemListaAvatar}>
+                    <Image style={estilos.itemListaAvatarImagen} source={{uri: item.urlImagen}} />
+                  </View>
+                  <View style={estilos.itemListaTexto}>
+                    <Text style={estilos.itemListaTextoTitulo}>
+                      {item.titulo}
+                    </Text>
+                    <Text style={estilos.itemListaTextoAutor}>
+                      {item.autor}
+                    </Text>
+                  </View>
+                  <View style={estilos.itemListaIr}>
+                    <Text style={estilos.itemListaIrIr}>
+                      >>
+                    </Text>
+                  </View>
                 </View>
               </TouchableNativeFeedback>
             )}
@@ -110,18 +114,3 @@ class BuscarLibro extends Component {
 };
 
 export default BuscarLibro;
-
-
-// <FlatList
-//   data={this.state.datos}
-//   renderItem={({item}) => (
-//     <ListItem
-//       roundAvatar
-//       title={item.titulo}
-//       subtitle={item.autor}
-//       avatar={{ uri: item.urlImagen }}
-//       containerStyle={{ borderBottomWidth: 1 }}
-//     />
-//   )}
-//   keyExtractor = { item  =>  item.titulo }
-// />

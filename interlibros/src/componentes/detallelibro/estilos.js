@@ -24,46 +24,18 @@ export const estilos = StyleSheet.create({
       padding: 10,
       color: '#fff'
   },
-  itemLista:{
-    borderBottomWidth: 1,
-    flexDirection: 'row',
-    paddingTop: 5,
-    paddingBottom: 10
-  },
-  itemListaAvatar:{
-    flexGrow: 1,
-  },
-  itemListaAvatarImagen:{
+  imagen:{
     borderRadius: 30,
     borderWidth: 0.5,
     borderColor: '#d6d7da',
-    height: 60,
-    width: 60
+    height: 50,
+    width: 50
   },
-  itemListaTexto:{
-    flexGrow: 6
-  },
-  itemListaTextoAutor:{
-    color: '#999',
-    fontSize: 15
-  },
-  itemListaTextoTitulo:{
-    color: '#fff',
-    fontSize: 20
-  },
-  itemListaIr:{
-    alignSelf: 'center',
-    flexGrow: 1
-  },
-  itemListaIrIr:{
-    color: '#fff',
-    fontSize: 15
+  itemLista:{
+    borderBottomWidth: 1,
   },
   lista:{
     flex:1
-  },
-  scrollLista:{
-    height: 400
   },
   textoBoton:{
       color: '#fff',
