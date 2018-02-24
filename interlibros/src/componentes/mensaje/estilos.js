@@ -8,10 +8,6 @@ export const estilos = StyleSheet.create({
     padding: 10,
     paddingTop: 20,
   },
-  contenedorBoton:{
-      backgroundColor: configTema.colorFondoBoton,
-      paddingVertical: 15
-  },
   contenedorLista: {
     backgroundColor: configTema.colorFondo
   },
@@ -25,16 +21,6 @@ export const estilos = StyleSheet.create({
     paddingRight: 5,
     paddingBottom: 5,
     paddingLeft: 5,
-  },
-  itemListaAvatar:{
-    flexGrow: 1,
-  },
-  itemListaAvatarImagen:{
-    borderRadius: 30,
-    borderWidth: 0.5,
-    borderColor: configTema.colorFondo,
-    height: 60,
-    width: 60
   },
   itemListaTexto:{
     flexGrow: 6

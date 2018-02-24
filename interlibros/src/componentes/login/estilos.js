@@ -44,7 +44,7 @@ export const estilos = StyleSheet.create({
       textAlign: 'center',
   },
   tituloLogo:{
-    color: '#648C32',
+    color: '#51708D',
     fontFamily: "sans-serif-condensed",
     fontSize: 55,
     fontWeight: "200"

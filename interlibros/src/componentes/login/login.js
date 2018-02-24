@@ -36,7 +36,7 @@ class Login extends Component {
         //   password: this.state.password
         // })
         body: JSON.stringify({
-          usuario: 'usuario01',
+          usuario: 'usuario02',
           password: '123456'
         })
     })
@@ -53,6 +53,7 @@ class Login extends Component {
         this.setState({password: ''});
         objAut.setToken(responseJson.token);
         objAut.setIdUsuario(responseJson.idUsuario);
+        objAut.setUsuario(responseJson.usuario);
         this.props.navigation.navigate('BuscarLibro');
       }
     })

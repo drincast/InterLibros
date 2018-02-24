@@ -81,10 +81,4 @@ class Mensaje extends Component {
   }
 };
 
-// <View>
-//   <TouchableOpacity style={estilos.contenedorBoton}>
-//     <Text style={estilos.textoBoton}>ENVIAR SOLICITUD</Text>
-//   </TouchableOpacity>
-// </View>
-
 export default Mensaje;

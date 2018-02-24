@@ -59,6 +59,7 @@ class DetalleLibro extends Component {
 
   enviarMensaje = async () => {
     let url = configApp.urlApi + 'enviar-mensaje';
+    let usuarioEnvia = 'El usuario ' + objAut.getUsuario() + " te envío un mensaje ... \n\n";
 
      fetch(url, {
         method: 'POST',
@@ -68,7 +69,7 @@ class DetalleLibro extends Component {
         body: JSON.stringify({
           idUsuario: this.props.navigation.state.params.idUsuario,
           idUsuarioEnvia: objAut.getIdUsuario(),
-          mensaje: configApp.msjSolicitud,
+          mensaje: usuarioEnvia + configApp.msjSolicitud,
           tipo: "Solicitud"
         })
     })
