@@ -1,18 +1,19 @@
 import { StyleSheet } from "react-native";
+const configTema = require('../../configtema');
 
 export const estilos = StyleSheet.create({
   contenedor: {
-    backgroundColor: '#305172',
+    backgroundColor: configTema.colorFondo,
     flex: 1,
     padding: 10,
     paddingTop: 20
   },
   contenedorBoton:{
-      backgroundColor: '#2980b6',
+      backgroundColor: configTema.colorFondoBoton,
       paddingVertical: 15
   },
   contenedorDatos: {
-    backgroundColor: '#305172',
+    backgroundColor: configTema.colorFondo,
     flex: 2
   },
   contenedorLogo: {
@@ -20,8 +21,8 @@ export const estilos = StyleSheet.create({
     flex: 1.5
   },
   input:{
-      backgroundColor: 'rgba(225,225,225,0.2)',
-      color: '#fff',
+      backgroundColor: configTema.colorFondoInput,
+      color: configTema.colorTextoTitulo,
       height: 45,
       marginBottom: 10,
       padding: 10,
@@ -37,7 +38,8 @@ export const estilos = StyleSheet.create({
     position: 'absolute'
   },
   textoBoton:{
-      color: '#fff',
+      color: configTema.colorTextoTitulo,
+      fontSize: 15,
       fontWeight: '700',
       textAlign: 'center',
   },

@@ -3,7 +3,8 @@ import { ActivityIndicator, Alert, Button, FlatList
          , Image, Keyboard, ListView
          , ScrollView, StatusBar, Text, TextInput
          , TouchableOpacity, TouchableNativeFeedback, View } from 'react-native';
-//import { List, ListItem, SearchBar } from "react-native-elements";
+
+import Mensaje from '../mensaje/mensaje';
 import { estilos } from './estilos';
 import AutSinglenton from '../../aut/autsinglenton';
 
@@ -11,11 +12,23 @@ const configApp = require('../../configapp');
 let objAut = AutSinglenton.getInstancia();
 
 class BuscarLibro extends Component {
+  static navigationOptions = ({ navigation }) => {
+    const params = navigation.state.params || {};
 
-  static navigationOptions = {
-    title: 'Buscar Libros',
-    header: null
+    return {
+      headerRight: (
+        <TouchableOpacity 
+          onPress={params._irAMensaje}
+        >
+          <Text>Ver Mensajes</Text>
+        </TouchableOpacity>
+      ),
+    };
   };
+
+  componentWillMount() {
+    this.props.navigation.setParams({ _irAMensaje: this.irAMensajes });
+  }
 
   constructor(props) {
     super(props);
@@ -28,7 +41,6 @@ class BuscarLibro extends Component {
 
   iniciarBusquedaLibros = async () => {
     let url = configApp.urlApi + 'obtener-libros-titulo/' + this.state.titulo;
-    alert(url);
 
     fetch(url, {
         method: 'GET',
@@ -46,7 +58,6 @@ class BuscarLibro extends Component {
       }
       else{
         this.setState({datos: responseJson.librosResp});
-        alert(JSON.stringify(responseJson.librosResp))
         Keyboard.dismiss();
       }
     })
@@ -56,7 +67,12 @@ class BuscarLibro extends Component {
   };
 
   detalleLibro = (idUsuario, idLibro) => {
-    this.props.navigation.navigate('DetalleLibro', {idUsuario: idUsuario, idLibro: idLibro});
+    this.props.navigation.navigate('DetalleLibro',
+                                  {idUsuario: idUsuario, idLibro: idLibro});
+  }
+
+  irAMensajes = () => {
+    this.props.navigation.navigate('Mensaje');
   }
 
   render(){

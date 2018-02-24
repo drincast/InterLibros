@@ -92,21 +92,30 @@ class DetalleLibro extends Component {
 
   render(){
     const {libro} = this.state;
-    alert(JSON.stringify(this.props.navigation.state.params.idUsuario));
     return (
       <View style={estilos.contenedor}>
         {
           libro != undefined ?
-            <View>
-              <Image source={{uri: libro.urlImagen}} style={{width:50, height: 50}}></Image>
-              <Text>{libro.titulo}</Text>
-              <Text>{libro.autor}</Text>
-              <Text>{libro.descripcion}</Text>
-
-              <TouchableOpacity onPress={this.enviarMensaje.bind(this)}
-                                style={estilos.contenedorBoton}>
-                 <Text style={estilos.textoBoton}>ENVIAR SOLICITUD</Text>
-              </TouchableOpacity>
+            <View style={estilos.contenedor}>
+              <View style={estilos.contenedorImagen}>
+                <Image source={{uri: libro.urlImagen}}
+                  style={estilos.imagenLibro}></Image>
+               </View>
+               <View style={estilos.contenedorInfo}>
+                 <View style={estilos.contenedorTitulos}>
+                   <Text style={estilos.titulo}>{libro.titulo}</Text>
+                   <Text style={estilos.autor}>{libro.autor}</Text>
+                 </View>
+                 <ScrollView style={estilos.contenedorDescripcion}>
+                   <Text style={estilos.descripcion}>{libro.descripcion}</Text>
+                 </ScrollView>
+                 <View style={estilos.contenedorBtn}>
+                   <TouchableOpacity onPress={this.enviarMensaje.bind(this)}
+                                     style={estilos.contenedorBoton}>
+                      <Text style={estilos.textoBoton}>ENVIAR SOLICITUD</Text>
+                   </TouchableOpacity>
+                 </View>
+               </View>
             </View>
 
           :null

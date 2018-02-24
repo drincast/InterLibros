@@ -1,28 +1,29 @@
 import { StyleSheet } from "react-native";
+const configTema = require('../../configtema');
 
 export const estilos = StyleSheet.create({
   contenedor: {
-    backgroundColor: '#305172',
+    backgroundColor: configTema.colorFondo,
     padding: 10,
     paddingTop: 20,
   },
   contenedorBoton:{
-      backgroundColor: '#2980b6',
+      backgroundColor: configTema.colorFondoBoton,
       paddingVertical: 15
   },
   contenedorBusqueda: {
-    backgroundColor: '#305172',
+    backgroundColor: configTema.colorFondo,
     paddingBottom: 10
   },
   contenedorLista: {
-    backgroundColor: '#305172'
+    backgroundColor: configTema.colorFondo
   },
   input:{
       height: 45,
-      backgroundColor: 'rgba(225,225,225,0.2)',
+      backgroundColor: configTema.colorFondoInput,
       marginBottom: 10,
       padding: 10,
-      color: '#fff'
+      color: configTema.colorTextoTitulo
   },
   itemLista:{
     borderBottomWidth: 1,
@@ -36,7 +37,7 @@ export const estilos = StyleSheet.create({
   itemListaAvatarImagen:{
     borderRadius: 30,
     borderWidth: 0.5,
-    borderColor: '#d6d7da',
+    borderColor: configTema.colorFondo,
     height: 60,
     width: 60
   },
@@ -44,11 +45,11 @@ export const estilos = StyleSheet.create({
     flexGrow: 6
   },
   itemListaTextoAutor:{
-    color: '#999',
+    color: configTema.colorTextoSubTitulo,
     fontSize: 15
   },
   itemListaTextoTitulo:{
-    color: '#fff',
+    color: configTema.colorTextoTitulo,
     fontSize: 20
   },
   itemListaIr:{
@@ -56,22 +57,22 @@ export const estilos = StyleSheet.create({
     flexGrow: 1
   },
   itemListaIrIr:{
-    color: '#fff',
+    color: configTema.colorTextoTitulo,
     fontSize: 15
   },
   lista:{
     flex:1
   },
   scrollLista:{
-    height: 400
+    height: 320
   },
   textoBoton:{
-      color: '#fff',
+      color: configTema.colorTextoTitulo,
       textAlign: 'center',
       fontWeight: '700'
   },
   tituloBusqueda:{
-    color: '#fff',
+    color: configTema.colorTextoTitulo,
     fontSize: 25,
     fontWeight: 'bold',
     paddingBottom: 15,

@@ -2,14 +2,8 @@ import { StyleSheet } from "react-native";
 const configTema = require('../../configtema');
 
 export const estilos = StyleSheet.create({
-  autor:{
-    color: configTema.colorTextoSubTitulo,
-    fontSize: 25,
-    fontWeight: 'bold',
-  },
   contenedor: {
     backgroundColor: configTema.colorFondo,
-    flex: 1,
     padding: 10,
     paddingTop: 20,
   },
@@ -17,32 +11,13 @@ export const estilos = StyleSheet.create({
       backgroundColor: configTema.colorFondoBoton,
       paddingVertical: 15
   },
-  contenedorBtn: {
-    flex: 0.5,
-    marginTop: 20
-  },
-  contenedorDescripcion: {
-    flex: 2,
-  },
-  contenedorInfo: {
-    flex: 3,
-  },
-  contenedorImagen: {
-    alignItems: 'center',
-    flex: 2,
-    justifyContent: 'center',
+  contenedorBusqueda: {
+    backgroundColor: configTema.colorFondo,
+    paddingBottom: 10
   },
   contenedorLista: {
     backgroundColor: configTema.colorFondo
   },
-  contenedorTitulos: {
-    flex: 0.7,
-  },
-  descripcion: {
-    color: configTema.colorTextoTitulo,
-    fontSize: 15
-  },
-
   input:{
       height: 45,
       backgroundColor: configTema.colorFondoInput,
@@ -50,28 +25,57 @@ export const estilos = StyleSheet.create({
       padding: 10,
       color: configTema.colorTextoTitulo
   },
-  imagenLibro:{
-    borderRadius: 30,
-    borderWidth: 1,
-    borderColor: configTema.colorTextoTitulo,
-    height: 200,
-    width: 200
-  },
   itemLista:{
     borderBottomWidth: 1,
+    flexDirection: 'row',
+    paddingTop: 5,
+    paddingBottom: 10
+  },
+  itemListaAvatar:{
+    flexGrow: 1,
+  },
+  itemListaAvatarImagen:{
+    borderRadius: 30,
+    borderWidth: 0.5,
+    borderColor: configTema.colorFondo,
+    height: 60,
+    width: 60
+  },
+  itemListaTexto:{
+    flexGrow: 6
+  },
+  itemListaTextoAutor:{
+    color: configTema.colorTextoSubTitulo,
+    fontSize: 15
+  },
+  itemListaTextoTitulo:{
+    color: configTema.colorTextoTitulo,
+    fontSize: 20
+  },
+  itemListaIr:{
+    alignSelf: 'center',
+    flexGrow: 1
+  },
+  itemListaIrIr:{
+    color: configTema.colorTextoTitulo,
+    fontSize: 15
   },
   lista:{
     flex:1
+  },
+  scrollLista:{
+    height: 400
   },
   textoBoton:{
       color: configTema.colorTextoTitulo,
       textAlign: 'center',
       fontWeight: '700'
   },
-  titulo:{
+  tituloBusqueda:{
     color: configTema.colorTextoTitulo,
-    fontSize: 35,
+    fontSize: 25,
     fontWeight: 'bold',
-    textAlign: 'center'
+    paddingBottom: 15,
+    textAlign: "center"
   }
 });
