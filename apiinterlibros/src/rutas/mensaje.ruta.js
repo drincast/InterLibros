@@ -8,7 +8,7 @@ var md_aut = require("../token/aut.js");
 
 //api.get('/usuarios', md_aut.autenticacion, ControladorUsuario.pruebaUsuario);
 api.get('/mensajes', ControladorMensaje.obtenerMensajes);
-api.get('/mensajes-Usuario/:idUsuario', ControladorMensaje.obtenerMensajesXIdUsuario);
+api.get('/mensajes-Usuario/:id', md_aut.autenticacion, ControladorMensaje.obtenerMensajesXIdUsuario);
 
 api.post('/enviar-mensaje', ControladorMensaje.enviarMensaje);
 

@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 var MensajeSchema = Schema({
   idUsuario: String,
   idUsuarioEnvia:String,
+  idLibro:String,
   mensaje: String,
   tipo: String
 });

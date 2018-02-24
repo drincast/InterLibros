@@ -23,6 +23,7 @@ function obtenerMensajes(req, res){
 
 function obtenerMensajesXIdUsuario(req, res){
   var id = req.params.id;
+  console.log(id);
 
   Mensaje.find({idUsuario: id}, (error, mensajesResp) => {
     if(error){
@@ -30,7 +31,7 @@ function obtenerMensajesXIdUsuario(req, res){
     }
     else{
       if(mensajesResp != null){
-        res.status(200).send(mensajesResp);
+        res.status(200).send({mensajesResp});
       }
       else {
         res.status(500).send({mensaje: "Error al consultar los mensajes :("});
@@ -45,6 +46,7 @@ function enviarMensaje(req, res){
 
   mensaje.idUsuario = parametros.idUsuario;
   mensaje.idUsuarioEnvia = parametros.idUsuarioEnvia;
+  mensaje.idLibro = parametros.idLibro;
   mensaje.mensaje = parametros.mensaje;
   mensaje.tipo = parametros.tipo;
 
