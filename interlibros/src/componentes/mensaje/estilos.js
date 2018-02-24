@@ -4,6 +4,7 @@ const configTema = require('../../configtema');
 export const estilos = StyleSheet.create({
   contenedor: {
     backgroundColor: configTema.colorFondo,
+    flex:1,
     padding: 10,
     paddingTop: 20,
   },
@@ -11,25 +12,19 @@ export const estilos = StyleSheet.create({
       backgroundColor: configTema.colorFondoBoton,
       paddingVertical: 15
   },
-  contenedorBusqueda: {
-    backgroundColor: configTema.colorFondo,
-    paddingBottom: 10
-  },
   contenedorLista: {
     backgroundColor: configTema.colorFondo
   },
-  input:{
-      height: 45,
-      backgroundColor: configTema.colorFondoInput,
-      marginBottom: 10,
-      padding: 10,
-      color: configTema.colorTextoTitulo
-  },
   itemLista:{
+    backgroundColor: '#c1d2e2',
     borderBottomWidth: 1,
+    borderRadius: 10,
     flexDirection: 'row',
+    marginBottom: 10,
     paddingTop: 5,
-    paddingBottom: 10
+    paddingRight: 5,
+    paddingBottom: 5,
+    paddingLeft: 5,
   },
   itemListaAvatar:{
     flexGrow: 1,
@@ -49,7 +44,7 @@ export const estilos = StyleSheet.create({
     fontSize: 15
   },
   itemListaTextoTitulo:{
-    color: configTema.colorTextoTitulo,
+    color: "#002A50", //configTema.colorTextoTitulo,
     fontSize: 20
   },
   itemListaIr:{

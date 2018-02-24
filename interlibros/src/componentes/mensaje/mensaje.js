@@ -46,7 +46,6 @@ class Mensaje extends Component {
         Alert.alert(responseJson.mensaje);
       }
       else{
-        alert(responseJson.mensajesResp)
         this.setState({mensajes: responseJson.mensajesResp});
       }
     })
@@ -58,11 +57,6 @@ class Mensaje extends Component {
   render(){
     return (
       <View style={estilos.contenedor}>
-        <View>
-          <TouchableOpacity style={estilos.contenedorBoton}>
-            <Text style={estilos.textoBoton}>ENVIAR SOLICITUD</Text>
-          </TouchableOpacity>
-        </View>
         <View style={estilos.contenedorLista}>
           <ScrollView style={estilos.scrollLista}>
           <FlatList
@@ -86,5 +80,11 @@ class Mensaje extends Component {
     );
   }
 };
+
+// <View>
+//   <TouchableOpacity style={estilos.contenedorBoton}>
+//     <Text style={estilos.textoBoton}>ENVIAR SOLICITUD</Text>
+//   </TouchableOpacity>
+// </View>
 
 export default Mensaje;
