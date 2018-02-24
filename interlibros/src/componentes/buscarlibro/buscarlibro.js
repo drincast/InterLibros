@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ActivityIndicator, Alert, Button, FlatList
          , Image, Keyboard, ListView
          , ScrollView, StatusBar, Text, TextInput
-         , TouchableOpacity, View } from 'react-native';
+         , TouchableOpacity, TouchableNativeFeedback, View } from 'react-native';
 //import { List, ListItem, SearchBar } from "react-native-elements";
 import { estilos } from './estilos';
 import AutSinglenton from '../../aut/autsinglenton';
@@ -62,8 +62,8 @@ class BuscarLibro extends Component {
     });
   };
 
-  detalleLibro = (idUsuario) => {
-    this.props.navigation.navigate('DetalleLibro', {idUsuario: idUsuario});
+  detalleLibro = (idUsuario, idLibro) => {
+    this.props.navigation.navigate('DetalleLibro', {idUsuario: idUsuario, idLibro: idLibro});
   }
 
 
@@ -91,13 +91,13 @@ class BuscarLibro extends Component {
           <FlatList
             data={this.state.datos}
             renderItem={({item}) => (
-              <TouchableOpacity onPress={this.detalleLibro.bind(this, item.idUsuario)}>
+              <TouchableNativeFeedback onPress={this.detalleLibro.bind(this, item.idUsuario, item._id)}>
                 <View style={estilos.itemLista}>
                   <Image style={estilos.imagen} source={{uri: item.urlImagen}} />
                   <Text>{item.titulo}</Text>
                   <Text>{item.autor}</Text>
                 </View>
-              </TouchableOpacity>
+              </TouchableNativeFeedback>
             )}
             keyExtractor = { item  =>  item.titulo }
           />

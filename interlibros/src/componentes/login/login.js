@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, Alert, Button, Image, ListView
+import { Alert, Button, Image, ImageBackground, ListView
          , ScrollView, StatusBar, Text, TextInput
          , TouchableOpacity, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
@@ -24,23 +24,6 @@ class Login extends Component {
       logeado: false
     }
   }
-
-  // componentDidMount() {
-  //   return fetch('https://facebook.github.io/react-native/movies.json')
-  //     .then((response) => response.json())
-  //     .then((responseJson) => {
-  //       let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-  //       this.setState({
-  //         isLoading: false,
-  //         dataSource: ds.cloneWithRows(responseJson.movies),
-  //       }, function() {
-  //         // do something with new state
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }
 
   iniciarLogin = async () => {
     //http://192.168.0.28:1234/api/login
@@ -76,7 +59,6 @@ class Login extends Component {
         this.setState({logeado: true});
         objAut.setToken(responseJson.token);
         objAut.setIdUsuario(responseJson.idUsuario);
-        alert(objAut.getIdUsuario());
         this.props.navigation.navigate('BuscarLibro');
       }
     })
@@ -90,7 +72,10 @@ class Login extends Component {
     return (
       <View style={estilos.contenedor}>
         <View style={estilos.contenedorLogo}>
-          <Image resizeMode="contain" source={require('./img/logo.gif')} />
+          <ImageBackground resizeMode="contain" source={require('./img/logo.gif')}
+                 style={estilos.imagenLogo}>
+            <Text style={estilos.tituloLogo}>InterLibros</Text>
+          </ImageBackground>
         </View>
         <View style={estilos.contenedorDatos}>
           <TextInput autoCapitalize="none"

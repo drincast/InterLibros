@@ -8,7 +8,7 @@ import { estilos } from './estilos';
 import AutSinglenton from '../../aut/autsinglenton';
 
 const configApp = require('../../configapp');
-var objAut = AutSinglenton.getInstancia();
+let objAut = AutSinglenton.getInstancia();
 
 class DetalleLibro extends Component {
   static navigationOptions = {
@@ -31,7 +31,7 @@ class DetalleLibro extends Component {
 
   obtenerDatosLibro = async () => {
     //let url = configApp.urlApi + 'obtener-libro/' + this.state.idLibro;
-    let url = configApp.urlApi + 'obtener-libro/' + '5a8f64de7ebc2447c8fa951d';
+    let url = configApp.urlApi + 'obtener-libro/' + this.props.navigation.state.params.idLibro;
 
      fetch(url, {
         method: 'GET',
@@ -69,8 +69,8 @@ class DetalleLibro extends Component {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          idUsuario: '5a8b9aa38365314d7083af2a',
-          idUsuarioEnvia: '5a8b9aa38365314d7083af2a',
+          idUsuario: this.props.navigation.state.params.idUsuario,
+          idUsuarioEnvia: objAut.getIdUsuario(),
           mensaje: configApp.msjSolicitud,
           tipo: "Solicitud"
         })
@@ -96,7 +96,7 @@ class DetalleLibro extends Component {
 
   render(){
     const {libro} = this.state;
-    alert(JSON.stringify(this.props.navigation.state.params));
+    alert(JSON.stringify(this.props.navigation.state.params.idUsuario));
     return (
       <View style={estilos.contenedor}>
         {
