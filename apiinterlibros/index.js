@@ -13,14 +13,13 @@ mongoose.connect(basedatos, function(error, respuesta) {
   console.log('iniciando conexión a mongolab ...');
 
   if(error){
-    //console.log('Error de conexión: ' + err);
     throw error;
   }
   else {
     console.log('Se conecto a mongolab !!!!');
 
     app.listen(port, function(){
-      console.log("Api rest funcionando");
+      console.log("Api rest funcionando, esperando peticiones ...");
     });
   }
 });

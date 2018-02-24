@@ -8,7 +8,7 @@ import { estilos } from './estilos';
 import AutSinglenton from '../../aut/autsinglenton';
 
 const configApp = require('../../configapp');
-var objAut = AutSinglenton.getInstancia();
+let objAut = AutSinglenton.getInstancia();
 
 class BuscarLibro extends Component {
   static navigationOptions = {
@@ -39,6 +39,7 @@ class BuscarLibro extends Component {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': objAut.getToken()
         }
     })
 

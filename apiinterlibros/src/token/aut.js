@@ -17,7 +17,7 @@ exports.autenticacion = function(req, res, next){
         return res.status(403).send({mensaje: "el token ha expirado"});
       }
     } catch (e) {
-      console.log(e);
+      //console.log(e);
       return res.status(403).send({mensaje: "el token no es válido"});
     }
 

@@ -23,11 +23,6 @@ app.use(bodyParser.json());
 // });
 
 
-//rutas base
-// app.get("/pruebas", (req, res) => {
-//   res.status(200).send({message: "bienvenido"})
-// });
-
 app.use("/api", rutaUsuario);
 app.use("/api", rutaLibro);
 app.use("/api", rutaMensaje);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Alert, Button, Image, ImageBackground, ListView
-         , ScrollView, StatusBar, Text, TextInput
+import { Alert, ImageBackground
+         , Text, TextInput
          , TouchableOpacity, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
@@ -20,13 +20,11 @@ class Login extends Component {
     super(props);
     this.state = {
       usuario: '',
-      password: '',
-      logeado: false
+      password: ''
     }
   }
 
   iniciarLogin = async () => {
-    //http://192.168.0.28:1234/api/login
     let url = configApp.urlApi + 'login';
     fetch(url, {
         method: 'POST',
@@ -35,13 +33,11 @@ class Login extends Component {
         },
         // body: JSON.stringify({
         //   usuario: this.state.usuario,
-        //   password: this.state.password,
-        //   token: "true"
+        //   password: this.state.password
         // })
         body: JSON.stringify({
           usuario: 'usuario01',
-          password: '123456',
-          token: "true"
+          password: '123456'
         })
     })
 
@@ -50,20 +46,17 @@ class Login extends Component {
       if(responseJson.token === undefined){
         this.setState({usuario: ''});
         this.setState({password: ''});
-        this.setState({logeado: false});
         Alert.alert(responseJson.mensaje);
       }
       else{
         this.setState({usuario: ''});
         this.setState({password: ''});
-        this.setState({logeado: true});
         objAut.setToken(responseJson.token);
         objAut.setIdUsuario(responseJson.idUsuario);
         this.props.navigation.navigate('BuscarLibro');
       }
     })
     .catch((error) => {
-      this.setState({logeado: false})
       console.error(error);
     });
   };

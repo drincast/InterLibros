@@ -28,8 +28,8 @@ export const estilos = StyleSheet.create({
   },
   imagenLogo:{
     flexGrow:1,
-    height:null,
-    width:null,
+    height:280,
+    width:280,
     alignItems: 'center',
     justifyContent:'center',
   },
@@ -42,7 +42,9 @@ export const estilos = StyleSheet.create({
       textAlign: 'center',
   },
   tituloLogo:{
-    fontFamily: "Roboto",
-    fontSize: 20,
+    color: '#648C32',
+    fontFamily: "sans-serif-condensed",
+    fontSize: 55,
+    fontWeight: "200"
   },
 });

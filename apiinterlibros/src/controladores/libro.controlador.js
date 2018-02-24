@@ -61,8 +61,10 @@ function obtenerLibro(req, res){
 
 function obtenerLibrosXTitulo(req, res){
   var titulo = req.params.titulo;
+  var idUsuario = req.params.idUsuario;
 
-  Libro.find({titulo: {'$regex': titulo}}, (error, librosResp) => {
+  Libro.find({titulo: {'$regex': titulo, '$options' : 'i'},
+              idUsuario: {$ne: idUsuario}}, (error, librosResp) => {
     if(error){
       res.status(500).send({mensaje: "Error al buscar en los libros :("});
     }
