@@ -77,13 +77,11 @@ class DetalleLibro extends Component {
     .then((response) => response.json())
     .then((responseJson) => {
 
-      if(responseJson.libroResp === undefined){
+      if(responseJson.mensaje){
         Alert.alert(responseJson.mensaje);
       }
       else{
-        this.setState({
-          libro: responseJson.libroResp[0],
-        });
+        Alert.alert(responseJson.mensajeOk);
       }
     })
     .catch((error) => {

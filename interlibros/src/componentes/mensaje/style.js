@@ -44,7 +44,7 @@ export default {
     flex: 1
   },
   scrollLista: {
-    height: 400
+    height: 450
   },
   textoBoton: {
     color: configTema.colorTextoTitulo,
