@@ -1,7 +1,6 @@
-import { StyleSheet } from "react-native";
-const configTema = require('../../configtema');
+const configTema = require('../../utils/configtema');
 
-export const estilos = StyleSheet.create({
+export default {
   autor:{
     color: configTema.colorTextoSubTitulo,
     fontSize: 25,
@@ -74,4 +73,4 @@ export const estilos = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center'
   }
-});
+}

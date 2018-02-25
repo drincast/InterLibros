@@ -4,10 +4,10 @@ import { ActivityIndicator, Alert, Button, FlatList
          , ScrollView, StatusBar, Text, TextInput
          , TouchableOpacity, View } from 'react-native';
 
-import { estilos } from './estilos';
-import AutSinglenton from '../../aut/autsinglenton';
+import styles from './style';
+import AutSinglenton from '../../utils/aut/autsinglenton';
 
-const configApp = require('../../configapp');
+const configApp = require('../../utils/configapp');
 let objAut = AutSinglenton.getInstancia();
 
 class DetalleLibro extends Component {
@@ -94,26 +94,26 @@ class DetalleLibro extends Component {
   render(){
     const {libro} = this.state;
     return (
-      <View style={estilos.contenedor}>
+      <View style={styles.contenedor}>
         {
           libro != undefined ?
-            <View style={estilos.contenedor}>
-              <View style={estilos.contenedorImagen}>
+            <View style={styles.contenedor}>
+              <View style={styles.contenedorImagen}>
                 <Image source={{uri: libro.urlImagen}}
-                  style={estilos.imagenLibro}></Image>
+                  style={styles.imagenLibro}></Image>
                </View>
-               <View style={estilos.contenedorInfo}>
-                 <View style={estilos.contenedorTitulos}>
-                   <Text style={estilos.titulo}>{libro.titulo}</Text>
-                   <Text style={estilos.autor}>{libro.autor}</Text>
+               <View style={styles.contenedorInfo}>
+                 <View style={styles.contenedorTitulos}>
+                   <Text style={styles.titulo}>{libro.titulo}</Text>
+                   <Text style={styles.autor}>{libro.autor}</Text>
                  </View>
-                 <ScrollView style={estilos.contenedorDescripcion}>
-                   <Text style={estilos.descripcion}>{libro.descripcion}</Text>
+                 <ScrollView style={styles.contenedorDescripcion}>
+                   <Text style={styles.descripcion}>{libro.descripcion}</Text>
                  </ScrollView>
-                 <View style={estilos.contenedorBtn}>
+                 <View style={styles.contenedorBtn}>
                    <TouchableOpacity onPress={this.enviarMensaje.bind(this)}
-                                     style={estilos.contenedorBoton}>
-                      <Text style={estilos.textoBoton}>ENVIAR SOLICITUD</Text>
+                                     style={styles.contenedorBoton}>
+                      <Text style={styles.textoBoton}>ENVIAR SOLICITUD</Text>
                    </TouchableOpacity>
                  </View>
                </View>

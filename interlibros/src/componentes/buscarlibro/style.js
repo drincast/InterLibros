@@ -1,26 +1,44 @@
-import { StyleSheet } from "react-native";
-const configTema = require('../../configtema');
+const configTema = require('../../utils/configtema');
 
-export const estilos = StyleSheet.create({
+export default {
   contenedor: {
     backgroundColor: configTema.colorFondo,
-    flex:1,
     padding: 10,
     paddingTop: 20,
+  },
+  contenedorBoton:{
+      backgroundColor: configTema.colorFondoBoton,
+      paddingVertical: 15
+  },
+  contenedorBusqueda: {
+    backgroundColor: configTema.colorFondo,
+    paddingBottom: 10
   },
   contenedorLista: {
     backgroundColor: configTema.colorFondo
   },
+  input:{
+      height: 45,
+      backgroundColor: configTema.colorFondoInput,
+      marginBottom: 10,
+      padding: 10,
+      color: configTema.colorTextoTitulo
+  },
   itemLista:{
-    backgroundColor: '#c1d2e2',
     borderBottomWidth: 1,
-    borderRadius: 10,
     flexDirection: 'row',
-    marginBottom: 10,
     paddingTop: 5,
-    paddingRight: 5,
-    paddingBottom: 5,
-    paddingLeft: 5,
+    paddingBottom: 10
+  },
+  itemListaAvatar:{
+    flexGrow: 1,
+  },
+  itemListaAvatarImagen:{
+    borderRadius: 30,
+    borderWidth: 0.5,
+    borderColor: configTema.colorFondo,
+    height: 60,
+    width: 60
   },
   itemListaTexto:{
     flexGrow: 6
@@ -30,7 +48,7 @@ export const estilos = StyleSheet.create({
     fontSize: 15
   },
   itemListaTextoTitulo:{
-    color: "#002A50", //configTema.colorTextoTitulo,
+    color: configTema.colorTextoTitulo,
     fontSize: 20
   },
   itemListaIr:{
@@ -45,7 +63,7 @@ export const estilos = StyleSheet.create({
     flex:1
   },
   scrollLista:{
-    height: 400
+    height: 320
   },
   textoBoton:{
       color: configTema.colorTextoTitulo,
@@ -59,4 +77,4 @@ export const estilos = StyleSheet.create({
     paddingBottom: 15,
     textAlign: "center"
   }
-});
+}

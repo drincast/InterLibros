@@ -4,10 +4,10 @@ import { Alert, Button, FlatList
          , ScrollView, StatusBar, Text, TextInput
          , TouchableOpacity, TouchableNativeFeedback, View } from 'react-native';
 
-import { estilos } from './estilos';
-import AutSinglenton from '../../aut/autsinglenton';
+import styles from './style';
+import AutSinglenton from '../../utils/aut/autsinglenton';
 
-const configApp = require('../../configapp');
+const configApp = require('../../utils/configapp');
 let objAut = AutSinglenton.getInstancia();
 
 class Mensaje extends Component {
@@ -56,16 +56,16 @@ class Mensaje extends Component {
 
   render(){
     return (
-      <View style={estilos.contenedor}>
-        <View style={estilos.contenedorLista}>
-          <ScrollView style={estilos.scrollLista}>
+      <View style={styles.contenedor}>
+        <View style={styles.contenedorLista}>
+          <ScrollView style={styles.scrollLista}>
           <FlatList
             data={this.state.mensajes}
             renderItem={({item}) => (
               <TouchableNativeFeedback>
-                <View style={estilos.itemLista}>
-                  <View style={estilos.itemListaTexto}>
-                    <Text style={estilos.itemListaTextoTitulo}>
+                <View style={styles.itemLista}>
+                  <View style={styles.itemListaTexto}>
+                    <Text style={styles.itemListaTextoTitulo}>
                       {item.mensaje}
                     </Text>
                   </View>
